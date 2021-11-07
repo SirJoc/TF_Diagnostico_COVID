@@ -1,1 +1,1 @@
-# TF_Operador_Telefonico
+# TF_Diagnostico_COVID
