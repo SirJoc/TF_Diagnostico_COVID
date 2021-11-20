@@ -24,7 +24,7 @@ type Form struct{
 	Cafelea bool `json:"cafelea"`
 	CongNasal bool `json:"cong_nasal"`
 	DifRespiratoria bool `json:"dif_respiratoria"`
-	DolorGargante bool `json:"dolor_gargante"`
+	DolorGarganta bool `json:"dolor_garganta"`
 	Fiebre bool `json:"fiebre"`
 	Diarrea bool `json:"diarrea"`
 	Nauseas bool `json:"nauseas"`
