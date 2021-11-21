@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"forms/algorithm"
+	"forms/model"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"gorm.io/driver/mysql"
@@ -13,7 +16,7 @@ type Form struct{
 	Cafelea bool `json:"cafelea"`
 	CongNasal bool `json:"cong_nasal"`
 	DifRespiratoria bool `json:"dif_respiratoria"`
-	DolorGargante bool `json:"dolor_gargante"`
+	DolorGarganta bool `json:"dolor_garganta"`
 	Fiebre bool `json:"fiebre"`
 	Diarrea bool `json:"diarrea"`
 	Nauseas bool `json:"nauseas"`
@@ -25,6 +28,18 @@ type Form struct{
 	Otros bool `json:"otros"`
 	Semanas uint `json:"semanas"`
 	ResultId uint `json:"result_id"`
+}
+
+func convertidor(ar []bool) ([]float64) {
+	respuesta := []float64{}
+	for i:= 0; i < len(ar); i++ {
+		if ar[i] == true {
+			respuesta = append(respuesta, 1)
+		}else {
+			respuesta = append(respuesta, 0)
+		}
+	}
+	return respuesta
 }
 
 func main() {
@@ -39,12 +54,21 @@ func main() {
 	app.Use(cors.New())
 
 
+
 	app.Post("/api/users/:id/results/forms", func(c *fiber.Ctx) error {
 		var form Form
 		if err := c.BodyParser(&form); err != nil {
 			return err
 		}
 		db.Create(&form)
+		entityBool := []bool{form.Tos, form.Cafelea, form.CongNasal, form.DifRespiratoria, form.DolorGarganta, form.Fiebre, form.Diarrea, form.Nauseas, form.AnosmiaHiposmia, form.DolorAbdominal, form.DolorArticulaciones, form.DolorMuscular, form.DolorPecho, form.Otros}
+		input, output := model.Result()
+		solve := algorithm.Nn_algo(input, output, convertidor(entityBool))
+		if solve >= 0.50 {
+			fmt.Println("Es sospechoso")
+		}else {
+			fmt.Println("NO ES sospechoso")
+		}
 		return c.JSON(form)
 	})
 
