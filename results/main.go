@@ -40,7 +40,7 @@ type Form struct{
 
 func main() {
 	// gorm
-	db, err := gorm.Open(mysql.Open("root:password@tcp(127.0.0.1:3306)/results_ms"), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open("root:root@tcp(127.0.0.1:3306)/results_ms"), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
