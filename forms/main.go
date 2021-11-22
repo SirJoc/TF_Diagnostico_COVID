@@ -1,14 +1,25 @@
 package main
 
 import (
-	"fmt"
+	"bytes"
+	"encoding/json"
 	"forms/algorithm"
 	"forms/model"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"log"
+	"net/http"
 )
+
+type Result struct {
+	Id uint `json:"id"`
+	CreatedAt string `json:"created_at"`
+	Diagnostic string `json:"diagnostic"`
+	UserId uint `json:"user_id"`
+	Form Form `json:"form"`
+}
 
 type Form struct{
 	Id uint `json:"id"`
@@ -27,7 +38,6 @@ type Form struct{
 	DolorPecho bool `json:"dolor_pecho"`
 	Otros bool `json:"otros"`
 	Semanas uint `json:"semanas"`
-	ResultId uint `json:"result_id"`
 }
 
 func convertidor(ar []bool) ([]float64) {
@@ -60,21 +70,42 @@ func main() {
 		if err := c.BodyParser(&form); err != nil {
 			return err
 		}
-		db.Create(&form)
+		//auxId, _ := strconv.ParseUint(c.Params("id"), 32, 64)
+		auxId := c.Params("id")
 		entityBool := []bool{form.Tos, form.Cafelea, form.CongNasal, form.DifRespiratoria, form.DolorGarganta, form.Fiebre, form.Diarrea, form.Nauseas, form.AnosmiaHiposmia, form.DolorAbdominal, form.DolorArticulaciones, form.DolorMuscular, form.DolorPecho, form.Otros}
 		input, output := model.Result()
 		solve := algorithm.Nn_algo(input, output, convertidor(entityBool))
+		b_sospecha := ""
 		if solve >= 0.50 {
-			fmt.Println("Es sospechoso")
+			b_sospecha = "Es sospechoso"
 		}else {
-			fmt.Println("NO ES sospechoso")
+			b_sospecha = "NO ES sospechoso"
 		}
+
+		data := map[string]string {
+			"user_id": auxId,
+			"created_at": "",
+			"diagnostic": b_sospecha,
+		}
+
+		json_data, err := json.Marshal(data)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		resultEnt, err := http.Post("http://localhost:8001/api/results", "application/json", bytes.NewBuffer(json_data))
+		if err != nil {
+			log.Fatal(err)
+		}
+		var res map[string]Result
+		json.NewDecoder(resultEnt.Body).Decode(&res)
+		db.Create(&form)
 		return c.JSON(form)
 	})
 
 	app.Get("/api/results/:id/forms", func(c *fiber.Ctx) error {
 		var form Form
-		db.Find(&form, "result_id = ?", c.Params("id"))
+		db.Find(&form, "id = ?", c.Params("id"))
 		return c.JSON(form)
 	})
 

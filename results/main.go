@@ -14,7 +14,7 @@ type Result struct {
 	Id uint `json:"id"`
 	CreatedAt string `json:"created_at"`
 	Diagnostic string `json:"diagnostic"`
-	UserId uint `json:"user_id"`
+	UserId uint `json:"user_id,string,omitempty"`
 	Form Form `json:"form"`
 }
 
@@ -35,7 +35,7 @@ type Form struct{
 	DolorPecho bool `json:"dolor_pecho"`
 	Otros bool `json:"otros"`
 	Semanas uint `json:"semanas"`
-	ResultId uint `json:"result_id"`
+	ResultId int64 `json:"result_id,string,omitempty"`
 }
 
 func main() {
@@ -75,8 +75,12 @@ func main() {
 	app.Post("/api/results", func(c *fiber.Ctx) error {
 		var result Result
 		if err := c.BodyParser(&result); err!= nil {
+			fmt.Println(&result)
+			fmt.Println(result)
+			fmt.Println(err)
 			return err
 		}
+
 		db.Create(&result)
 		return c.JSON(result)
 	})
