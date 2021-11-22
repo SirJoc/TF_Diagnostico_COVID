@@ -1,0 +1,30 @@
+
+
+mat-card {
+  max-width: 300px;
+  margin: 2rem auto;
+}
+
+.full-width-input,
+button {
+  width: 100%;
+}
+
+.separator {
+  margin-bottom: 2rem;
+}
+
+section {
+  display: table;
+}
+.form-radio{
+  margin-top: 20px;
+}
+
+.example-margin {
+  margin: 0 12px;
+}
+
+.example-full-width {
+  width: 100%;
+}
