@@ -23,7 +23,7 @@ export class HistoricComponent implements OnInit {
   constructor(private data : ResultsApiService) { }
 
   ngOnInit(): void {
-    this.data.getResultById(1)
+    this.data.getResultsByUserId(1)
       .subscribe( (data: any) => {
         this.elements = data
         //console.log(data)
@@ -36,5 +36,5 @@ export class HistoricComponent implements OnInit {
     console.log(this.elements)
   }
 
-  displayedColumns: string[] = ['tos', 'cefalea', 'nasal', 'respiratoria', 'Garganta', 'Fiebre', 'Diarrea', 'Nauseas', 'nosmia_Hiposmia', 'Abdomen', 'Articulaciones', 'Muscular', 'Pecho', 'Otros', 'Diagnostico'];
+  displayedColumns: string[] = ['id', 'fecha', 'diagnostico'];
 }

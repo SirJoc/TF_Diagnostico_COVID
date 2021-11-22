@@ -1,9 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
 import { Form } from '../models/data';
 import {FormsApiService} from "../service/forms_api.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs";
+import {JsonPipe} from "@angular/common";
+import {parseJson} from "@angular/cli/utilities/json-file";
 
 
 @Component({
@@ -15,11 +17,32 @@ export class TestComponent implements OnInit {
   @ViewChild('formForm', {static: false})
   formForm!: NgForm;
   formId!: number;
-  formData: Form = {} as Form;
+  data: Form = {} as Form;
+  toppings: FormGroup;
   resultado!: Observable<any>;
+  realResultado!: String;
 
 
-  constructor(private formApi: FormsApiService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private formApi: FormsApiService, private router: Router, private route: ActivatedRoute, fb:FormBuilder) {
+    this.toppings = fb.group(
+      {
+        tos: false,
+        cefalea: false,
+        congNasal: false,
+        difRespiratoria : false,
+        dolorGarganta : false,
+        fiebre :false,
+        diarrea : false,
+        nauseas : false,
+        anosmiaPulmonar :false,
+        dolorAbdominal : false,
+        dolorArticulaciones : false,
+        dolorMuscular : false,
+        dolorPecho : false,
+        otros : false
+      }
+    );
+  }
 
   ngOnInit(): void {
     this.formId = Number(this.route.params.subscribe(params =>{
@@ -27,20 +50,24 @@ export class TestComponent implements OnInit {
         const id = params.id;
       }
     }));
+
   }
 
   addForm(): void{
-    const newForm = {tos: this.formData.tos, cefalea: this.formData.cefalea, congNasal: this.formData.congNasal,
-                    difRespiratoria: this.formData.difRespiratoria, dolorGarganta: this.formData.dolorGarganta,
-                    fiebre: this.formData.fiebre, diarrea: this.formData.diarrea, nauseas: this.formData.nauseas,
-                    anosmiaPulmonar: this.formData.anosmiaPulmonar, dolorAbdominal: this.formData.anosmiaPulmonar,
-                    dolorArticulaciones: this.formData.dolorArticulaciones, dolorMuscular: this.formData.dolorMuscular,
-                    dolorPecho: this.formData.dolorPecho, otros: this.formData.otros};
-    this.resultado = this.formApi.addForm(this.formId, newForm);
+    const newForm = {tos: this.toppings.value.tos, cefalea: this.toppings.value.cefalea, congNasal: this.toppings.value.congNasal,
+      difRespiratoria: this.toppings.value.difRespiratoria, dolorGarganta: this.toppings.value.dolorGarganta,
+      fiebre: this.toppings.value.fiebre, diarrea: this.toppings.value.diarrea, nauseas: this.toppings.value.nauseas,
+      anosmiaPulmonar: this.toppings.value.anosmiaPulmonar, dolorAbdominal: this.toppings.value.anosmiaPulmonar,
+      dolorArticulaciones: this.toppings.value.dolorArticulaciones, dolorMuscular: this.toppings.value.dolorMuscular,
+      dolorPecho: this.toppings.value.dolorPecho, otros: this.toppings.value.otros};
+
     console.log(newForm);
-    //this.resultado.subscribe((response: String) => {
-    //  console.log(response);
-    //});
+    this.resultado = this.formApi.addForm(this.formId, newForm);
+    this.resultado.subscribe((response: String) => {
+      console.log(response);
+      this.realResultado = response;
+    });
+
   }
 
   onSubmit(): void{

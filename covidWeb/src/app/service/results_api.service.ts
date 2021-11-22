@@ -23,8 +23,8 @@ export class ResultsApiService {
     return throwError('Something happened with request, please try again later.');
   }
 
-  getResultById(id: number): Observable<Result>{
-    return this.http.get<Result>(`${this.basePath}/${id}/results`,this.httpOptions)
+  getResultsByUserId(id: number): Observable<any>{
+    return this.http.get<any>(`${this.basePath}/${id}/results`,this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 }
