@@ -3,30 +3,34 @@
   <mat-card>
     <mat-card-content>
       <h2>Comprueba si eres o no sospechoso de COVID</h2>
-      <form>
-        <p><mat-checkbox>¿Tiene Tos?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene Cefalea?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene Congestion Nasal?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene Dificultad respiratoria?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene dolor de garganta?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene fiebre?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene diarrea?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene nauseas?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene anosmia pulmornar?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene dolor abdominal?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene dolor de articulaciones?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene dolor muscular?</mat-checkbox></p>
-        <p><mat-checkbox>¿Tiene dolor de pecho?</mat-checkbox></p>
-        <p><mat-checkbox>¿Otros?</mat-checkbox></p>
-        <button mat-raised-button color="primary"
+      <form #formForm = "ngForm">
+        <section [formGroup]="toppings">
+          <p><mat-checkbox formControlName="tos">¿Tiene Tos?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="cefalea">¿Tiene Cefalea?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="congNasal">¿Tiene Congestion Nasal?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="difRespiratoria">¿Tiene Dificultad respiratoria?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="dolorGarganta">¿Tiene dolor de garganta?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="fiebre">¿Tiene fiebre?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="diarrea">¿Tiene diarrea?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="nauseas">¿Tiene nauseas?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="anosmiaPulmonar">¿Tiene anosmia pulmornar?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="dolorAbdominal">¿Tiene dolor abdominal?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="dolorArticulaciones">¿Tiene dolor de articulaciones?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="dolorMuscular">¿Tiene dolor muscular?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="dolorPecho">¿Tiene dolor de pecho?</mat-checkbox></p>
+          <p><mat-checkbox formControlName="otros">¿Otros?</mat-checkbox></p>
+        </section>
+      </form>
+
+
+      <section [formGroup]="toppings">
+        <button mat-raised-button color="primary" (click)="onSubmit()"
         >Probar
         </button>
         <mat-form-field class="example-full-width" appearance="fill">
-          <input matInput disabled value="Diagnostico">
+          <input matInput disabled [value]="realResultado">
         </mat-form-field>
-
-
-      </form>
+      </section>
     </mat-card-content>
   </mat-card>
 </div>
