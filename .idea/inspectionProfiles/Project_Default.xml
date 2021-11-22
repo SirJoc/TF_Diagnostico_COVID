@@ -1,0 +1,57 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="19">
+            <item index="0" class="java.lang.String" itemvalue="mat-header-cell" />
+            <item index="1" class="java.lang.String" itemvalue="*matcelldef" />
+            <item index="2" class="java.lang.String" itemvalue="mat-cell" />
+            <item index="3" class="java.lang.String" itemvalue="*matrowdef" />
+            <item index="4" class="java.lang.String" itemvalue="*matheaderrowdef" />
+            <item index="5" class="java.lang.String" itemvalue="*matheadercelldef" />
+            <item index="6" class="java.lang.String" itemvalue="mat-table" />
+            <item index="7" class="java.lang.String" itemvalue="[datasource]" />
+            <item index="8" class="java.lang.String" itemvalue="matinput" />
+            <item index="9" class="java.lang.String" itemvalue="formcontrolname" />
+            <item index="10" class="java.lang.String" itemvalue="text" />
+            <item index="11" class="java.lang.String" itemvalue="[type]" />
+            <item index="12" class="java.lang.String" itemvalue="mat-raised-button" />
+            <item index="13" class="java.lang.String" itemvalue="[disabled]" />
+            <item index="14" class="java.lang.String" itemvalue="color" />
+            <item index="15" class="java.lang.String" itemvalue="(click)" />
+            <item index="16" class="java.lang.String" itemvalue="mat-button" />
+            <item index="17" class="java.lang.String" itemvalue="routerlink" />
+            <item index="18" class="java.lang.String" itemvalue="routerlinkactive" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="15">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="ng-container" />
+            <item index="7" class="java.lang.String" itemvalue="app-navigation" />
+            <item index="8" class="java.lang.String" itemvalue="mat-card" />
+            <item index="9" class="java.lang.String" itemvalue="mat-card-content" />
+            <item index="10" class="java.lang.String" itemvalue="mat-form-field" />
+            <item index="11" class="java.lang.String" itemvalue="mat-error" />
+            <item index="12" class="java.lang.String" itemvalue="mat-toolbar" />
+            <item index="13" class="java.lang.String" itemvalue="router-outlet" />
+            <item index="14" class="java.lang.String" itemvalue="mat-checkbox" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+  </profile>
+</component>
