@@ -1,31 +1,31 @@
 export interface Form{
-  Tos: boolean
-  Cefalea: boolean
-  cong_nasal: boolean
-  dif_respiratoria: boolean
-  dolor_garganta: boolean
+  tos: boolean
+  cefalea: boolean
+  congNasal: boolean
+  difRespiratoria: boolean
+  dolorGarganta: boolean
   fiebre: boolean
   diarrea: boolean
   nauseas: boolean
-  anosmia_pulmonar: boolean
-  dolor_abdominal: boolean
-  dolor_articulaciones: boolean
-  dolor_muscular: boolean
-  dolor_pecho: boolean
+  anosmiaPulmonar: boolean
+  dolorAbdominal: boolean
+  dolorArticulaciones: boolean
+  dolorMuscular: boolean
+  dolorPecho: boolean
   otros: boolean
 }
 
 export interface User{
   firstName: string
-  lastname: string
+  lastName: string
   username: string
   password: string
 }
 
 export interface  Result{
-  CreatedAt: string
-  Diagnostic: string
-  UserId: number
+  createdAt: string
+  diagnostic: string
+  userId: number
   form: Form
 }
 
