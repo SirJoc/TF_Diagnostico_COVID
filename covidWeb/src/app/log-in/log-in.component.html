@@ -1,0 +1,37 @@
+<div class="login-form">
+  <mat-card>
+    <mat-card-content>
+      <h1>LOGIN</h1>
+      <form>
+        <mat-form-field class="full-width-input">
+          <input
+            text="text"
+            formControlName="username"
+            matInput
+            placeholder="Username"
+            required
+          >
+          <mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input separator">
+          <input
+            [type]="'password'"
+            formControlName="password"
+            matInput
+            placeholder="Password"
+            required
+          >
+          <mat-error>
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="navigateToHome()"
+          [disabled]
+          type="submit"
+          mat-raised-button
+         >Login
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
