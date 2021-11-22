@@ -13,7 +13,6 @@ export interface Form{
   dolor_muscular: boolean
   dolor_pecho: boolean
   otros: boolean
-  semanas: number
 }
 
 export interface User{
