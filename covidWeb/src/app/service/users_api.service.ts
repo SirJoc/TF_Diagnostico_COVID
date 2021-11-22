@@ -7,7 +7,7 @@ import { catchError, retry } from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class UsersApiService {
-  basePath = 'http://localhost:8000/api/users/:username';
+  basePath = 'http://localhost:8000/api/users';
   constructor(private http: HttpClient) {  }
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})};
 
@@ -26,8 +26,8 @@ export class UsersApiService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getByUsername(username: string): Observable<User> {
-    return this.http.get<User>(`${this.basePath}/${username}`, this.httpOptions)
+  getById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.basePath}/id/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

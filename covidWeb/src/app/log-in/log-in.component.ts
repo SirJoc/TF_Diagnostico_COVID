@@ -5,6 +5,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {UsersApiService} from "../service/users_api.service";
 import {User} from "../models/data";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 
 @Component({
@@ -13,13 +14,18 @@ import {User} from "../models/data";
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
-  user: User = { username:"", password:""};
-  constructor(private usersApi: UsersApiService, private router: Router) { }
+  toppings: FormGroup;
+  flag!: boolean;
+  constructor(private usersApi: UsersApiService, private router: Router, fb:FormBuilder) {
+    this.toppings = fb.group(
+      {
+        username: "",
+        password: ""
+      }
+    )
+  }
   userData: User = {} as User;
-  leng_users = 0;
-  isOk = false;
-  isCorrect = false;
-  arr_user!: User["username"];
+  leng_users = 1;
 
   ngOnInit(): void {
     this.usersApi.getAll().subscribe(response=> {
@@ -33,12 +39,15 @@ export class LogInComponent implements OnInit {
   }
 
   identifyUser() : void {
+    this.flag = false;
     for(let i = 1; i<= this.leng_users;i++)
     {
-      this.usersApi.getByUsername(username).subscribe(response=>{
-        if(response.username === this.userData.username){
-          if(response.password === this.userData.password){
+      this.usersApi.getById(i).subscribe(response=>{
+        console.log(response);
+        if(response.username === this.toppings.value.username){
+          if(response.password === this.toppings.value.password){
             this.navigateToHome();
+            this.flag = true;
           }
         }
       })

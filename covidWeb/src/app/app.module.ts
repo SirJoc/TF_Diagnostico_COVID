@@ -12,7 +12,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {HistoricComponent} from "./historic/historic.component";
 import {TestComponent} from "./test/test.component";
 import {MatTableModule} from "@angular/material/table";
-import { NavigationComponent } from './navigation/navigation.component';
+import {NavigationComponent } from './navigation/navigation.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldControl, MatFormFieldModule} from "@angular/material/form-field";
@@ -42,6 +42,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     HistoricComponent,
     TestComponent,
     NavigationComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -54,14 +55,12 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule,
     MatTableModule,
     MatPaginatorModule,
     HttpClientModule,
     MatTooltipModule,
     MatSelectModule,
     MatButtonToggleModule,
-    ReactiveFormsModule,
     MatDatepickerModule,
     MatListModule,
     MatNativeDateModule,
@@ -69,17 +68,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     MatSidenavModule,
     MatRadioModule,
     MatCheckboxModule,
-    BrowserAnimationsModule,
-    BrowserModule,
     FormsModule,
-    HttpClientModule,
-    MatNativeDateModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    MatNativeDateModule,
     ReactiveFormsModule,
   ],
   providers: [],

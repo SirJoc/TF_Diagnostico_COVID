@@ -27,11 +27,13 @@
         <button mat-raised-button color="primary" (click)="onSubmit()"
         >Probar
         </button>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <input matInput disabled [value]="realResultado">
-        </mat-form-field>
       </section>
     </mat-card-content>
+  </mat-card>
+  <br>
+  <br>
+  <mat-card>
+    <h3>{{realResultado}}</h3>
   </mat-card>
 </div>
 

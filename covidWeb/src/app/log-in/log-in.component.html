@@ -2,33 +2,28 @@
   <mat-card>
     <mat-card-content>
       <h1>LOGIN</h1>
-      <form>
-        <mat-form-field class="full-width-input">
-          <input
-            text="text"
-            formControlName="username"
-            matInput
-            placeholder="Username"
-            required [(ngModel)]="userData.username"
-          >
-          <mat-error>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="full-width-input separator">
-          <input
-            matInput
-            placeholder="Password"
-            type="password"
-            required
-            [(ngModel)]="userData.password"
-          >
-          <mat-error>
-          </mat-error>
-        </mat-form-field>
+      <form #loginForm = "ngForm">
+        <section [formGroup]="toppings">
+          <mat-form-field class="full-width-input separator">
+            <input
+              matInput
+              placeholder="Username"
+              type="text"
+              required
+              formControlName="username"
+            >
+          </mat-form-field>
+          <mat-form-field class="full-width-input separator">
+            <input
+              matInput
+              placeholder="Password"
+              type="password"
+              required
+              formControlName="password"
+            >
+          </mat-form-field>
+        </section>
         <button mat-raised-button color="primary" (click)="identifyUser()"
-                [disabled]
-                type="submit"
-                mat-raised-button
         >Login
         </button>
       </form>
