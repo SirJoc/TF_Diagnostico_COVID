@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d3efb0f-e8bc-4e82-ae6b-316fcf8cb6fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/activation.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/batchTrainer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/layer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/loss.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/model.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/neural.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/neural_network.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/neuron.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/persist.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/printer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/solver.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/trainer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/util.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/algorithm/weights.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/data set.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/model/form.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/model/test_csv.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/forms/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/results/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +65,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

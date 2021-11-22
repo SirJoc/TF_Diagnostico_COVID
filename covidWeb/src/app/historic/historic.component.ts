@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Form, Result} from '../models/data'
-import {DataApiService} from "../service/Api_service";
+import {ResultsApiService} from "../service/results_api.service";
 import {isElementScrolledOutsideView} from "@angular/cdk/overlay/position/scroll-clip";
 
 export interface PeriodicElement {
@@ -20,10 +20,10 @@ export interface PeriodicElement {
 export class HistoricComponent implements OnInit {
   elements :  Result[] = [];
 
-  constructor(private data : DataApiService) { }
+  constructor(private data : ResultsApiService) { }
 
   ngOnInit(): void {
-    this.data.getAllData(1)
+    this.data.getResultById(1)
       .subscribe( (data: any) => {
         this.elements = data
         //console.log(data)
