@@ -62,7 +62,7 @@ export class TestComponent implements OnInit {
       dolorPecho: this.toppings.value.dolorPecho, otros: this.toppings.value.otros};
 
     console.log(newForm);
-    this.resultado = this.formApi.addForm(this.formId, newForm);
+    this.resultado = this.formApi.addForm(1, newForm);
     this.resultado.subscribe((response: String) => {
       console.log(response);
       this.realResultado = response;
