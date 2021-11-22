@@ -9,23 +9,23 @@
             formControlName="username"
             matInput
             placeholder="Username"
-            required
+            required [(ngModel)]="userData.username"
           >
           <mat-error>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="full-width-input separator">
           <input
-            [type]="'password'"
-            formControlName="password"
             matInput
             placeholder="Password"
+            type="password"
             required
+            [(ngModel)]="userData.password"
           >
           <mat-error>
           </mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="navigateToHome()"
+        <button mat-raised-button color="primary" (click)="identifyUser()"
                 [disabled]
                 type="submit"
                 mat-raised-button

@@ -16,8 +16,7 @@ export interface Form{
 }
 
 export interface User{
-  firstName: string
-  lastName: string
+  id: number;
   username: string
   password: string
 }
