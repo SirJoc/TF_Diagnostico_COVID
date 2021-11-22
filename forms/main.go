@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"forms/algorithm"
 	"forms/model"
 	"github.com/gofiber/fiber/v2"
@@ -11,6 +12,7 @@ import (
 	"gorm.io/gorm"
 	"log"
 	"net/http"
+	"time"
 )
 
 type Result struct {
@@ -81,10 +83,13 @@ func main() {
 		}else {
 			b_sospecha = "NO ES sospechoso"
 		}
+		now := time.Now()
+		fecha := now.Format("2006-01-02 15:04:05")
 
+		fmt.Println(fecha)
 		data := map[string]string {
 			"user_id": auxId,
-			"created_at": "",
+			"created_at": fecha,
 			"diagnostic": b_sospecha,
 		}
 
@@ -100,7 +105,7 @@ func main() {
 		var res map[string]Result
 		json.NewDecoder(resultEnt.Body).Decode(&res)
 		db.Create(&form)
-		return c.JSON(form)
+		return c.JSON(b_sospecha)
 	})
 
 	app.Get("/api/results/:id/forms", func(c *fiber.Ctx) error {
