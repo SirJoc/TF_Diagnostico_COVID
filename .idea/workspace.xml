@@ -4,8 +4,26 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="497ad228-99db-4efe-bda6-5b23554d3d01" name="Changes" comment="feature:webApp">
+    <list default="true" id="8d3efb0f-e8bc-4e82-ae6b-316fcf8cb6fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/activation.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/batchTrainer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/layer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/loss.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/model.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/neural.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/neural_network.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/neuron.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/persist.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/printer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/solver.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/trainer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/util.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/algorithm/weights.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/data set.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/model/form.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/model/test_csv.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/forms/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +60,12 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/forms" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GoProject\TF_Diagnostico_COVID\forms" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
