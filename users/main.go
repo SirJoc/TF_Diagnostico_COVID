@@ -88,5 +88,12 @@ func main() {
 		return c.JSON(user)
 	})
 
+	app.Get("/api/users/:username", func(c *fiber.Ctx) error {
+		var user User
+		db.Find(&user, "username = ?", c.Params("username"))
+
+		return c.JSON(user.Password)
+	})
+
 	app.Listen(":8000")
 }
